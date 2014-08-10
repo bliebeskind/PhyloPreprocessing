@@ -14,7 +14,7 @@ def fas_to_phy(infile):
 		print rec.id + ' ' + str(rec.seq)
 		
 if __name__ == '__main__':
-	Usage:"""
+	Usage = """
 	####### Usage #######
 	fas_to_phy.py <myFasta> >> my_phylip.phy
 	"""
