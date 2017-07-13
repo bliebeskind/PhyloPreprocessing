@@ -62,17 +62,6 @@ def get_prots_from_file(infile, min_length=100):
 if __name__ == '__main__':
 	infile = sys.argv[1]
 	outfile = sys.argv[2]
-	prots = bool(sys.argv[3])
-	try:
-		min_length = int(sys.argv[4])
-		if prots:
-			outrecs_iter = get_prots_from_file(infile, min_length)
-		else:
-			outrecs_iter = get_orfs_from_file(infile, min_length)
-	except IndexError: # no min length specified
-		if prots:
-			outrecs_iter = get_orfs_from_file(infile, min_length=100)
-		else:
-			outrecs_iter = get_orfs_from_file(infile, min_length=100)
+	outrecs_iter = get_prots_from_file(infile, min_length=100)
 	with open(outfile,'w') as f:
 		SeqIO.write(outrecs_iter, f, 'fasta')
