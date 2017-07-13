@@ -16,10 +16,10 @@ def parse_hmmscan_tab(infile, print_header=True):
         if len(rec) > 1:
             hit1,hit2 = rec.hits[0],rec.hits[1]
             eval1,eval2 = hit1.evalue,hit2.evalue
-            if eval1 != 0: # convert to -log10 evalue
-                eval1 = -np.log10(eval1)
+            if eval1 != 0: # convert to -ln evalue
+                eval1 = -np.log(eval1)
             if eval2 != 0:
-                eval2 = -np.log10(eval2)
+                eval2 = -np.log(eval2)
             if eval1 == 0 and eval2 != 0: # this may be a hack, I don't care
                 certainty = 1
             elif eval1 == 0 and eval2 == 0:
